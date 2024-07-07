@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - AI Ethics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0f0f3f;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        #ai-ethics-sphere {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .topic-node {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #topic-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+        nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+        }
+        nav ul li {
+            margin-bottom: 10px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Name</h1>
+            <p>Exploring the Ethics of Artificial Intelligence</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#career">Career</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#policies">Policies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div id="ai-ethics-sphere"></div>
+        <div id="topic-info"></div>
+
+        <!-- Other sections would go here -->
+
+    </div>
+
+    <script>
+        const topics = [
+            {name: "Privacy", info: "Protecting individual privacy in the age of AI"},
+            {name: "Bias", info: "Addressing and mitigating bias in AI systems"},
+            {name: "Transparency", info: "Ensuring AI decision-making processes are understandable"},
+            {name: "Accountability", info: "Determining responsibility for AI actions"},
+            {name: "Job Displacement", info: "Managing the impact of AI on employment"}
+        ];
+
+        function createSphere() {
+            const sphere = document.getElementById('ai-ethics-sphere');
+            topics.forEach((topic, index) => {
+                const node = document.createElement('div');
+                node.className = 'topic-node';
+                node.style.left = `${Math.random() * 280}px`;
+                node.style.top = `${Math.random() * 280}px`;
+                node.onclick = () => showTopicInfo(topic);
+                sphere.appendChild(node);
+            });
+        }
+
+        function showTopicInfo(topic) {
+            const infoDiv = document.getElementById('topic-info');
+            infoDiv.innerHTML = `<h3>${topic.name}</h3><p>${topic.info}</p>`;
+        }
+
+        createSphere();
+    </script>
+</body>
+</html>
